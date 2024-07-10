@@ -58,6 +58,16 @@ diccionario='/home/alumno/Escritorio/diccionario.txt'
 resultado='/home/alumno/Escritorio/palabras.txt'
 
 funcion6() { #60
+funcion6() { #60
+fecha=$(date +"%Y-%m-%d")
+: > $resultado
+grep -E "^$letra1.$letra3.$letra2$" "$diccionario" > "$resultado" #-E es para hacerle varias condiciones al grep
+cantpal=$(wc -l < $resultado) #wc es para ver la cantidad de lineas, -l es para que solo ponga el numero en cantidad y>
+canttotal=$(wc -l < $diccionario)
+echo "la fecha es $fecha" >> "$resultado"
+echo "la cantidad de palabras es $cantpal" >> "$resultado"
+echo "la cantidad de palabras en el diccionario es $canttotal" >> "$resultado"
+}
 
 }
 
