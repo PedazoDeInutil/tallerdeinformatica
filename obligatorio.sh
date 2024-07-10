@@ -63,7 +63,9 @@ fecha=$(date +"%Y-%m-%d")
 grep -E "^$letra1.$letra3.$letra2$" "$diccionario" > "$resultado" #-E es para hacerle varias condiciones al grep
 cantpal=$(wc -l < $resultado) #wc es para ver la cantidad de lineas, -l es para que solo ponga el numero en cantidad y>
 canttotal=$(wc -l < $diccionario)
-echo "la fecha es $fecha" 
+echo "la fecha es $fecha" >> "$resultado"
+echo "la cantidad de palabras es $cantpal" >> "$resultado"
+echo "la cantidad de palabras en el diccionario es $canttotal" >> "$resultado"
 }
 
 algoritmo2() { #71
