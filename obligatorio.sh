@@ -16,7 +16,8 @@ echo  "7- ingresar vocal"
 echo  "8- listar palabras del diccionario solo con esa vocal"
 echo  "9- Algoritmo 1"
 echo  "10- Algoritmo 2"
-echo  "11- Salir"
+echo  "11- Convertir a mayusculas"
+echo  "12- Salir"
 }
 seguir=true
 listarusuarios() { #22
@@ -147,7 +148,12 @@ algoritmo1() {
 
 
 
-
+convertir_mayusculas() {
+    echo "Ingrese el texto que desea convertir a mayúsculas:"
+    read texto
+    texto_mayusculas=$(echo "$texto" | tr '[:lower:]' '[:upper:]')
+    echo "Texto en mayúsculas: $texto_mayusculas"
+}
 
 if grep -q "^$usuario $contrasenia$" "$archivo"; then #el -q significa que no se manda por consola pero si le indica a>
 while $seguir; do
@@ -165,7 +171,8 @@ case $opcion in
 8) listarpalabrasvocal ;;
 9) algoritmo1 ;;
 10) algoritmo2 ;;
-11) seguir=false ;;
+11) convertir_mayusculas ;; 
+12) seguir=false ;;
 *) echo "esa opcion no esta disponible por favor ingrese otra"
 esac
 done
